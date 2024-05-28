@@ -35,7 +35,8 @@
   },
   "bin": "bin/cli.mjs",
   "files": [
-    "dist"
+    "dist",
+    "logo.png"
   ],
   "scripts": {
     "build": "unbuild",
