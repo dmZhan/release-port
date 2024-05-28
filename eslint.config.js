@@ -9,7 +9,6 @@ export default dmzj(
   },
   {
     rules: {
-      'no-console': 'error',
     },
   },
 )
