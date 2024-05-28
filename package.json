@@ -33,9 +33,7 @@
       ]
     }
   },
-  "bin": {
-    "rp": "bin/cli.mjs"
-  },
+  "bin": "bin/cli.mjs",
   "files": [
     "dist"
   ],
