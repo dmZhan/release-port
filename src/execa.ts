@@ -5,6 +5,13 @@ import type { execResult } from './types'
 
 export function execa(otherArgs: string): Promise<execResult> {
   try {
+    if (otherArgs === '') {
+      return Promise.resolve({
+        out: 'Execa nothing',
+        err: '',
+      })
+    }
+
     const { cmd, arg } = getCommandByPlatform()
 
     const child = spawn(cmd, [arg, otherArgs], { stdio: 'pipe', cwd: process.cwd() })
@@ -49,6 +56,13 @@ export function execa(otherArgs: string): Promise<execResult> {
 
 export function execaSync(otherArgs: string): execResult {
   const { cmd, arg } = getCommandByPlatform()
+
+  if (otherArgs === '') {
+    return {
+      out: 'Execasync nothing',
+      err: '',
+    }
+  }
 
   const result = spawnSync(cmd, [arg, otherArgs], { cwd: process.cwd(), encoding: 'utf-8' })
 

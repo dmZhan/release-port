@@ -87,7 +87,7 @@ function killPort(platform: 'win32', pids: string[]): string
 function killPort(platform: Exclude<NodeJS.Platform, 'win32'>, method: 'udp' | 'tcp', port: number): string
 function killPort(platform: NodeJS.Platform, ops?: any, port?: number): string {
   if (platform === 'win32') {
-    return `TaskKill /F /PID ${ops?.join(' /PID ')}`
+    return ops.length ? `TaskKill /F /PID ${ops?.join(' /PID ')}` : ''
   }
   else {
     return `lsof -i ${ops === 'udp' ? 'udp' : 'tcp'}:${port} | grep ${ops === 'udp' ? 'UDP' : 'LISTEN'} | awk '{print $2}' | xrags kill -9`

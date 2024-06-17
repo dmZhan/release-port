@@ -48,7 +48,7 @@
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
     "start": "esno src/index.ts",
-    "test": "vitest",
+    "test": "vitest -w",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks",
     "update:deps": "taze major -w -r && pnpm install"
